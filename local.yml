@@ -15,6 +15,16 @@ services:
       - '3000:3000'
     networks:
       - PyccelNetwork
+  backend:
+    container_name: pyccel-backend
+    build:
+      context: ./backend/
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - '8000:8000'
+    networks:
+      - PyccelNetwork
+    restart: always
 
 networks:
   PyccelNetwork:
